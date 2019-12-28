@@ -13,6 +13,10 @@
   color: white;
 }
 
+.nav-item {
+  margin-left: 10px;
+}
+
 .hero {
   background: image_url('hero.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
@@ -52,6 +56,10 @@ h1, h2, h3, h4, h5, h6, .navbar {
   width: 100%;
   padding-left: 5%;
   padding-right: 5%;
+}
+
+.feature-item {
+  color: white;
 }
 
 body {
