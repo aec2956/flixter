@@ -1,4 +1,4 @@
 class Enrollment < ApplicationRecord
   belongs_to :course
-  belongs_to :userS_
+  belongs_to :user
 end
