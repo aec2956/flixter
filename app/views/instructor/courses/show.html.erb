@@ -1,19 +1,24 @@
 <script>
   $(function() {
-        $('.new-lesson-button').click(fuction( event ) {
+        $('.new-lesson-button').click(function( event ) {
             var lessonUrl = $( event.target).data('lesson-url');
             $( '#newLessonForm').attr('action', lessonUrl );
         });
 
   $(function() {
     $('.lessons').sortable({
-      update: function( event, ui ) {
-        alert(ui.item.index());
+       update: function( event, ui ) {
+        $.ajax({
+          type: 'PUT',
+          url: ui.item.data('update-url'),
+          dataType: 'json',
+          data: { lesson: { row_order_position: ui.item.index() } }
+        });
       }
     });
   });
 
-    /*$(function() {
+    /*$(function() {show.html.erb
       $('.lessons').sortable({
         update: function( event, ui ) {
           $.ajax({
@@ -75,7 +80,7 @@
 
                 <ul class="lessons">
                     <% section.lessons.rank(:row_order).each do |lesson| %>
-                      <li data-item-id=<%= lesson.id %> data-update-url="<%= instructor_lesson_path(lesson) %>">           
+                      <li data-update-url="<%= instructor_lesson_path(lesson) %>">
                         <b><%= lesson.title %></b>
                         -
                         <%= lesson.subtitle %>
