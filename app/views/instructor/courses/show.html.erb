@@ -6,6 +6,8 @@
     $('#newLessonForm').attr('action', lessonUrl);
     });
 
+});
+  $(function() {
     $('.lessons').sortable({
       update: function( event, ui ) {
         $.ajax({
@@ -17,7 +19,8 @@
       }
     });
 
-
+});
+  $(function() {
     $('.sections').sortable({
       update: function( event, ui ) {
         $.ajax({
@@ -147,4 +150,4 @@
     </div>
   </div>
 
-   
+
